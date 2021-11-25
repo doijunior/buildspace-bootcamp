@@ -47,6 +47,10 @@ contract MyEpicGame is ERC721 {
   // to store the owner of the NFT and reference it later.
   mapping(address => uint256) public nftHolders;
 
+  // EVENTS THAT NOTIFY THAT THE ACTION HAS BEEN DONE
+  event CharacterNFTMinted(address sender, uint256 tokenId, uint256 characterIndex);
+  event AttackComplete(uint newBossHp, uint newPlayerHp);
+
   constructor(
     string[] memory characterNames,
     string[] memory characterImageURIs,
@@ -131,6 +135,8 @@ contract MyEpicGame is ERC721 {
     // Console for ease.
     console.log("Player attacked boss. New boss hp: %s", bigBoss.hp);
     console.log("Boss attacked player. New player hp: %s\n", player.hp);
+
+    emit AttackComplete(bigBoss.hp, player.hp);
   }
   function tokenURI(uint256 _tokenId) public view override returns (string memory) {
     CharacterAttributes memory charAttributes = nftHolderAttributes[_tokenId];
@@ -212,5 +218,7 @@ contract MyEpicGame is ERC721 {
 
     // Increment the tokenId for the next person that uses it.
     _tokenIds.increment();
+
+    emit CharacterNFTMinted(msg.sender, newItemId, _characterIndex);
   }
 }
