@@ -9,6 +9,10 @@ Here they are, my code made for Buildspace projects:
 - [ ] Build your own DAO with just Javascript in a weekend
 - [ ] Ship your own DeFi dApp on Avalanche in a weekend
 
+# TecNoz
+
+Follow TecNoz Cardano videos
+
 ## TODO
 - [ ] Copy the frontend projects to the repository
 - [ ] Build a custom project from scratch with Vue
