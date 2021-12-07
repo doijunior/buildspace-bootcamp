@@ -1,0 +1,19 @@
+{
+  "name": "WILLOW",
+  "symbol": "",
+  "image": "1.png",
+  "properties": {
+    "files": [
+      {
+        "uri": "1.png",
+        "type": "image/png"
+      }
+    ],
+    "creators": [
+      {
+        "address": "EtKBrVcRrqxaZTyyVXF8sSGqBn2rGeFkW1VufYpo7RjT",
+        "share": 100
+      }
+    ]
+  }
+}
