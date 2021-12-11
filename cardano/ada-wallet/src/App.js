@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import cbor from 'cbor';
-// import * as wasm from '@emurgo/cardano-serialization-lib-asmjs';
+// import * as wasm from '@emurgo/cardano-serialization-lib-nodejs';
 
 import './App.css';
 
@@ -17,6 +17,11 @@ function App() {
   const [address, setAddress] = useState("");
   const [cardano, setCardano] = useState(window.cardano);
 
+  const networks = [ 'testnet', 'mainnet'];
+
+  setTimeout(() => {
+    setCardano(window.cardano)
+  })
   function connectWallet(){
     cardano.enable().then((response) => {
       setWallet(true);
@@ -25,21 +30,46 @@ function App() {
     });
   }
 
-  function showBalance(string){
 
-  }
+  useEffect(() => {
+    if(cardano) {
+      cardano.isEnabled().then((enabled) => {
+        if(enabled) {
+          setWallet(true);
+        }
+      })
+    }
+  })
+
   useEffect(() => {
     if(!wallet) return;
     const showWalletData = () => {
+      function showAddress(addresses){
+        setAddress(addresses[0])
+      }
+
+      function showBalance(string){
+        const balance = cbor.decode(string);
+        setBalance(balance/1_000_000);
+      }
+    
+      function showNetwork(networkId){
+        setNetwork(networks[networkId]);
+      }
+    
       cardano.getBalance().then(showBalance);
-      window.cbor = cbor;
-      // window.wasm = wasm;
+      cardano.getNetworkId().then(showNetwork);
+      cardano.getUsedAddresses().then(showAddress);
+
+      // cardano.getNetworkId().then(showAddress);
     }
-  }, [wallet])
+    showWalletData();
+    cardano.onNetworkChange(()=> {showWalletData()})
+  }, [wallet, address, cardano, network])
   return (
     <div className="App">
       <header className="App-header">
-        {window.cardano && (
+        {cardano && (
           <div>
             {wallet && (
               <div>
@@ -64,7 +94,7 @@ function App() {
 
           </div>
         )}
-        {!window.cardano && (
+        {!cardano && (
           <p>Carteira não identificada</p>
         )}
       </header>
