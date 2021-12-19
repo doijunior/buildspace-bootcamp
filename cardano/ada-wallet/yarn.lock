@@ -1161,6 +1161,16 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
+"@emurgo/cardano-serialization-lib-asmjs@^9.1.2":
+  version "9.1.2"
+  resolved "https://registry.yarnpkg.com/@emurgo/cardano-serialization-lib-asmjs/-/cardano-serialization-lib-asmjs-9.1.2.tgz#5be2e155247c283eae9e7229c93b14a83e9e8ec0"
+  integrity sha512-L+hoq2lDHP9Mt97QHIldpQkewQo/suvIhPEvHo4cI1uFMV0TNvWNaPjWA5FQ9bPL8RFAD/l1h/HTpLqvttjs2g==
+
+"@emurgo/cardano-serialization-lib-browser@^9.1.2":
+  version "9.1.2"
+  resolved "https://registry.yarnpkg.com/@emurgo/cardano-serialization-lib-browser/-/cardano-serialization-lib-browser-9.1.2.tgz#906f0c5b7ac33dc9b24d54eb9fa13dea27feb41e"
+  integrity sha512-eQnS0VaRbpgJLCMVLDuYqk1C0mp8TYDptYwaESGk9ZvQxga+Brl4vnlH/XHRjN6HIVm2vNBjujs758dE3uc7cg==
+
 "@emurgo/cardano-serialization-lib-nodejs@^9.1.2":
   version "9.1.2"
   resolved "https://registry.yarnpkg.com/@emurgo/cardano-serialization-lib-nodejs/-/cardano-serialization-lib-nodejs-9.1.2.tgz#805080727233b169092792d9da275ec86f14d49a"

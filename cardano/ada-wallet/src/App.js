@@ -1,7 +1,8 @@
 import {useEffect, useState} from 'react';
 import cbor from 'cbor';
-// import * as wasm from '@emurgo/cardano-serialization-lib-nodejs';
 
+// import { Address } from '@emurgo/cardano-serialization-lib-browser'
+import { Address } from '@emurgo/cardano-serialization-lib-asmjs';
 import './App.css';
 
 function hexToBytes(hex) {
